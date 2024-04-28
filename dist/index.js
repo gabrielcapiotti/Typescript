@@ -1,5 +1,8 @@
 "use strict";
-/*1-
+/*1- Crie uma função que receba 2 números e retorne um objeto
+contendo a média e também um indicador booleano de
+aprovado/reprovado. Considere aprovado com média >= 6.
+
 let aprovado: boolean
 
 function media(nota1:number, nota2:number) {
@@ -16,7 +19,12 @@ function media(nota1:number, nota2:number) {
 
 media(6,8);
 */
-/*2
+/*2- Crie uma função que receba uma lista de objetos contendo nota e
+peso, realize a média das notas considerando o peso. Exemplos:
+Lista com 2 notas: (N1*P1) + (N2*P2) / 2 = Resultado
+Lista com 3 notas: (N1*P1) + (N2*P2) + (N3*P3) / 3 = Resultado
+
+
 interface Objeto  {
     nota1: number,
     peso1: number,
@@ -76,6 +84,12 @@ function mostrarDiretor(diretor) {
     console.log(diretor);
 }
 mostrarDiretor(diretor);
+/* 7- Crie um tipo que seja composto por um User OU por um Diretor
+usando interseção de tipos. Desenvolva uma função que receba
+uma lista desse novo tipo e, para cada item da lista, imprima:
+a. O mesmo que o exercício 5, em caso de objeto User.
+b. O mesmo que o exercício 6, em caso de objeto Diretor.
+*/
 const lista = [];
 function imprimir(lista) {
     lista.forEach(pessoa => {
