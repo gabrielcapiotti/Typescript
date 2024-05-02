@@ -34,11 +34,11 @@ const bola = new Bola("preta", 4, "couro");
 // No construtor, o saldo é opcional, com valor padrão zero e os
 // demais atributos são obrigatórios. A conta não pode ficar com saldo
 // negativo.
-
+/*
 import Conta from "./model/Conta";
 
 const conta = new Conta("AB");
-
+*/
 // 4. Crie uma classe para representar uma Calculadora. Esta classe
 // deve conter um atributo que servirá para armazenar o histórico das
 // operações e seus respectivos resultados.
@@ -96,3 +96,45 @@ const bombaCombustivel = new BombaCombustivel("etanol", 5, 20);
 // meuFusca.obterGasolina()
 
 import Carro from "./model/Carro";
+
+import Venusia from "./model/Venusia";
+
+import Box from "./model/Livro";
+
+const boxHerdeirodaMana= new Box(7, "Herdeiro da Mana", "Capa dura", 1200);
+
+import Animal from "./model/Animal";
+import Cachorro from "./model/Cachorro";
+import Gato from "./model/Gato";
+
+const cacau = new Cachorro('Labradora', 'Cacau', false );
+const frajola = new Gato("frajola", "preto", true);
+
+console.log(cacau);
+console.log(frajola);
+
+
+
+
+
+
+
+
+import Conta from "./model/Conta"
+import ContaKids from "./model/ContaKids";
+
+const minhaConta = new Conta();
+minhaConta.deposito(1000);
+const contaKids = new ContaKids(minhaConta, 20);
+contaKids.deposito(1000);
+
+console.log(minhaConta);
+console.log(contaKids);
+
+
+
+
+
+
+
+

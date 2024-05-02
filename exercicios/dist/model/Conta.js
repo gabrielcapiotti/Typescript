@@ -1,3 +1,4 @@
+"use strict";
 /*
 Crie uma classe para implementar uma conta corrente. A classe
 deve possuir os seguintes atributos:
@@ -41,41 +42,35 @@ class Conta{
             return;
         } else {
             this.saldo -= valor;
-            console.log(`Novo saldo: R$ ${this.saldo}`);    
+            console.log(`Novo saldo: R$ ${this.saldo}`);
         }
     }
 }
 
 export default Conta;
 */
-
-
+Object.defineProperty(exports, "__esModule", { value: true });
 class Conta {
-    private saldo: number;
-    protected numeroConta:number
-
-    constructor(numeroConta?:number){
-        this.saldo=0;
+    constructor(numeroConta) {
+        this.saldo = 0;
         if (numeroConta) {
-            this.numeroConta=numeroConta;
-        } else {
-            this.numeroConta= new Date().getTime();
+            this.numeroConta = numeroConta;
+        }
+        else {
+            this.numeroConta = new Date().getTime();
         }
     }
-
-    deposito(valor:number){
+    deposito(valor) {
         this.saldo += valor;
-
     }
-    saque(valor:number){
-        this.saldo-=valor;
+    saque(valor) {
+        this.saldo -= valor;
     }
-    retornaSaldo(){
+    retornaSaldo() {
         return this.saldo;
     }
-    retornaNumeroConta(){
+    retornaNumeroConta() {
         return this.numeroConta;
     }
 }
-
-export default Conta;
+exports.default = Conta;

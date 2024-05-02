@@ -1,3 +1,4 @@
+"use strict";
 /*
 1. Crie uma classe Contador, que encapsule um valor usado para
 contagem de itens ou eventos. A classe deve oferecer métodos que
@@ -27,21 +28,19 @@ class Contador {
     }
 }
 */
-
+Object.defineProperty(exports, "__esModule", { value: true });
 class Contador {
-    contador: number;
-    constructor(contador:number){
+    constructor(contador) {
         this.contador = contador;
     }
-    zerar(){
-        this.contador=0;
+    zerar() {
+        this.contador = 0;
     }
-    incrementar(){
+    incrementar() {
         this.contador++;
     }
-    retornar(){
+    retornar() {
         console.log(this.contador);
     }
 }
-
-export default Contador;
+exports.default = Contador;
