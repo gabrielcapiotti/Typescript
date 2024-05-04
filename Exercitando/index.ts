@@ -290,3 +290,207 @@ console.log("Tentativa de alugar o Carro 2 novamente:");
 const novoValorAluguelCarro2 = carro2.alugarVeiculo(2);
 
 
+/*
+Claro, aqui está o enunciado baseado na classe `Encomenda`:
+
+---
+
+### Sistema de Controle de Envio de Encomendas
+
+Você foi contratado para desenvolver um sistema de controle de envio de encomendas para uma empresa de logística. A empresa precisa de um sistema que seja capaz de registrar as informações básicas de uma encomenda e controlar seu status durante o processo de entrega.
+
+1. **Classe Encomenda:**
+   - A classe `Encomenda` representa uma única encomenda a ser entregue.
+   - Atributos:
+     - `remetente`: Nome do remetente da encomenda.
+     - `destinatario`: Nome do destinatário da encomenda.
+     - `peso`: Peso da encomenda em quilogramas (kg).
+     - `enderecoEntrega`: Endereço de entrega da encomenda.
+     - `status`: Status atual da encomenda (inicializado como "Pendente").
+   - Métodos:
+     - `atualizarStatus(novoStatus: string)`: Atualiza o status da encomenda para o valor especificado.
+     - `calcularCustoEnvio(): number`: Calcula o custo do envio da encomenda com base no peso. O custo é fixado em R$ 0,50 por quilo.
+
+2. **Exemplo de Uso:**
+   ```typescript
+   const encomenda1 = new Encomenda("João", "Maria", 5, "Rua A, 123");
+   console.log("Custo do envio:", encomenda1.calcularCustoEnvio());
+   console.log("Status da encomenda:", encomenda1.status);
+   encomenda1.atualizarStatus("Em trânsito");
+   console.log("Novo status da encomenda:", encomenda1.status);
+   ```
+
+Utilize a classe `Encomenda` como base para desenvolver o sistema de controle de envio de encomendas. Certifique-se de que os métodos e atributos estão funcionando corretamente e que as encomendas podem ser registradas e rastreadas com sucesso.
+
+--- 
+
+Esse enunciado descreve o sistema de controle de envio de encomendas utilizando a classe `Encomenda`. Agora você pode implementar outras funcionalidades ou expandir o sistema conforme necessário.
+*/
+
+class Encomenda{
+    remetente:string;
+    destinatario:string;
+    peso:number;
+    endereçoEntrega:string;
+    status:string;
+
+    constructor(
+        remetente: string,
+        destinatario:string,
+        peso:number,
+        enderecoEntrega:string,
+    )
+    {
+        this.remetente=remetente;
+        this.destinatario=destinatario;
+        this.peso=peso;
+        this.endereçoEntrega=enderecoEntrega;
+        this.status="Pendente"
+    }
+    // Método para atualizar o status da encomenda
+    atualizarStatus(novoStatus:string){
+        this.status=novoStatus;
+    }
+    // Método para calcular o custo do envio com base no peso da encomenda
+    calcularCustoEnvio():number{
+    // Suponha que o custo seja R$ 0,50 por quilo
+        const custoQuilo=0.5;
+        return this.peso*custoQuilo;
+    }
+}
+
+// Exemplo de uso da classe Encomenda
+const encomenda1 = new Encomenda("João", "Maria", 5, "Rua A, 123");
+console.log("Custo do envio:", encomenda1.calcularCustoEnvio());
+console.log("Status da encomenda:", encomenda1.status);
+encomenda1.atualizarStatus("Em trânsito");
+console.log("Novo status da encomenda:", encomenda1.status);
+
+/*
+Enunciado da Questão:
+
+Você foi contratado para desenvolver um sistema de gerenciamento de produtos para uma empresa que vende eletrônicos e realiza entregas dos produtos aos clientes. A empresa precisa de um sistema que permita registrar os produtos em estoque, atualizar o estoque conforme as vendas e calcular o custo de envio dos produtos.
+
+1. **Classe Produto:**
+   - A classe `Produto` representa um produto disponível na loja.
+   - Atributos:
+     - `nome`: Nome do produto.
+     - `precoUnitario`: Preço unitário do produto.
+     - `quantidadeEstoque`: Quantidade disponível em estoque.
+     - `categoria`: Categoria do produto (ex: smartphones, laptops, tablets, acessórios).
+   - Métodos:
+     - `atualizarEstoque(quantidade: number)`: Atualiza a quantidade em estoque do produto.
+     - `calcularTotal(): number`: Calcula o total de vendas do produto com base na quantidade em estoque e no preço unitário.
+
+2. **Classe Encomenda:**
+   - A classe `Encomenda` representa um pedido de entrega de um produto.
+   - Atributos:
+     - `remetente`: Nome do remetente.
+     - `destinatario`: Nome do destinatário.
+     - `peso`: Peso da encomenda em quilogramas.
+     - `enderecoEntrega`: Endereço de entrega da encomenda.
+     - `status`: Status da entrega (ex: Pendente, Em trânsito, Entregue).
+   - Métodos:
+     - `atualizarStatus(novoStatus: string)`: Atualiza o status da entrega.
+     - `calcularCustoEnvio(): number`: Calcula o custo de envio da encomenda com base no peso.
+
+3. **Exemplo de Uso:**
+   ```typescript
+   // Criando um produto e uma encomenda
+   const produto1 = new Produto("Smartphone", 1500, 50, "Smartphones");
+   const encomenda1 = new Encomenda("João", "Maria", 2, "Rua A, 123");
+
+   // Atualizando o estoque do produto
+   produto1.atualizarEstoque(-5); // Vende 5 unidades do produto
+
+   // Atualizando o status da encomenda e calculando o custo de envio
+   encomenda1.atualizarStatus("Em trânsito");
+   console.log("Custo de envio da encomenda:", encomenda1.calcularCustoEnvio());
+   ```
+
+Desenvolva as classes `Produto` e `Encomenda` conforme descrito acima e utilize-as para gerenciar os produtos em estoque e as entregas dos produtos. Utilize o exemplo de uso para testar o sistema de gerenciamento.
+*/
+
+class Produto{
+    nome:string;
+    precoUnitario:number;
+    quantidadeEstoque:number;
+    categoria:string;
+    constructor(
+        nome:string,
+        precoUnitario:number,
+        quantidadeEstoque:number,
+        categoria:string;
+    )
+    {
+        this.nome=nome;
+        this.precoUnitario=precoUnitario;
+        this.quantidadeEstoque=quantidadeEstoque;
+        this.categoria=categoria;
+    }
+    atualizarEstoque(quantidade:number){
+        this.quantidadeEstoque+=quantidade;
+    }
+    calcularTotal():number{
+        return this.quantidadeEstoque*this.precoUnitario;
+    }
+    
+}
+
+class Encomenda {
+    remetente:string;
+    destinatario:string;
+    peso:number;
+    enderecoEntrega:string;
+    status:string;
+    constructor(
+        remetente:string,
+        destinatario:string,
+        peso:number,
+        enderecoEntrega:string,
+    ) 
+    {
+       this.remetente=remetente;
+       this.destinatario=destinatario;
+       this.peso=peso;
+       this.enderecoEntrega=enderecoEntrega;
+       this.status="Pendente";
+    }
+    atualizarStatus(novoStatus:string){
+        this.status=novoStatus;
+    }
+    calcularCustoEnvio():number{
+        const custoQuilo=0.5;
+        return this.peso*custoQuilo;
+    }
+}
+
+const produto1 = new Produto("Smartphone", 1500, 50, "Smartphones");
+const encomenda1 = new Encomenda("João", "Maria", 2, "Rua A, 123");
+
+// Atualizando o estoque do produto
+produto1.atualizarEstoque(-5); // Vende 5 unidades do produto
+
+// Atualizando o status da encomenda e calculando o custo de envio
+encomenda1.atualizarStatus("Em trânsito");
+console.log("Custo de envio da encomenda:", encomenda1.calcularCustoEnvio());
+
+/*
+
+// Exemplo de uso das classes
+const produto1 = new Produto("Smartphone", 1500, 50, "Smartphones");
+const encomenda1 = new Encomenda("João", "Maria", 2, "Rua A, 123");
+
+// Atualizando o estoque do produto
+produto1.atualizarEstoque(-5); // Vende 5 unidades do produto
+
+// Atualizando o status da encomenda e calculando o custo de envio
+encomenda1.atualizarStatus("Em trânsito");
+console.log("Custo de envio da encomenda:", encomenda1.calcularCustoEnvio());
+*/
+
+
+
+
+
+
