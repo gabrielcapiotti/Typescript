@@ -290,3 +290,351 @@ console.log("Tentativa de alugar o Carro 2 novamente:");
 const novoValorAluguelCarro2 = carro2.alugarVeiculo(2);
 
 
+/*
+Claro, aqui está o enunciado baseado na classe `Encomenda`:
+
+---
+
+### Sistema de Controle de Envio de Encomendas
+
+Você foi contratado para desenvolver um sistema de controle de envio de encomendas para uma empresa de logística. A empresa precisa de um sistema que seja capaz de registrar as informações básicas de uma encomenda e controlar seu status durante o processo de entrega.
+
+1. **Classe Encomenda:**
+   - A classe `Encomenda` representa uma única encomenda a ser entregue.
+   - Atributos:
+     - `remetente`: Nome do remetente da encomenda.
+     - `destinatario`: Nome do destinatário da encomenda.
+     - `peso`: Peso da encomenda em quilogramas (kg).
+     - `enderecoEntrega`: Endereço de entrega da encomenda.
+     - `status`: Status atual da encomenda (inicializado como "Pendente").
+   - Métodos:
+     - `atualizarStatus(novoStatus: string)`: Atualiza o status da encomenda para o valor especificado.
+     - `calcularCustoEnvio(): number`: Calcula o custo do envio da encomenda com base no peso. O custo é fixado em R$ 0,50 por quilo.
+
+2. **Exemplo de Uso:**
+   ```typescript
+   const encomenda1 = new Encomenda("João", "Maria", 5, "Rua A, 123");
+   console.log("Custo do envio:", encomenda1.calcularCustoEnvio());
+   console.log("Status da encomenda:", encomenda1.status);
+   encomenda1.atualizarStatus("Em trânsito");
+   console.log("Novo status da encomenda:", encomenda1.status);
+   ```
+
+Utilize a classe `Encomenda` como base para desenvolver o sistema de controle de envio de encomendas. Certifique-se de que os métodos e atributos estão funcionando corretamente e que as encomendas podem ser registradas e rastreadas com sucesso.
+
+--- 
+
+Esse enunciado descreve o sistema de controle de envio de encomendas utilizando a classe `Encomenda`. Agora você pode implementar outras funcionalidades ou expandir o sistema conforme necessário.
+*/
+
+class Encomenda1{
+    remetente:string;
+    destinatario:string;
+    peso:number;
+    endereçoEntrega:string;
+    status:string;
+
+    constructor(
+        remetente: string,
+        destinatario:string,
+        peso:number,
+        enderecoEntrega:string,
+    )
+    {
+        this.remetente=remetente;
+        this.destinatario=destinatario;
+        this.peso=peso;
+        this.endereçoEntrega=enderecoEntrega;
+        this.status="Pendente"
+    }
+    // Método para atualizar o status da encomenda
+    atualizarStatus(novoStatus:string){
+        this.status=novoStatus;
+    }
+    // Método para calcular o custo do envio com base no peso da encomenda
+    calcularCustoEnvio():number{
+    // Suponha que o custo seja R$ 0,50 por quilo
+        const custoQuilo=0.5;
+        return this.peso*custoQuilo;
+    }
+}
+
+// Exemplo de uso da classe Encomenda
+const encomenda1 = new Encomenda1("João", "Maria", 5, "Rua A, 123");
+console.log("Custo do envio:", encomenda1.calcularCustoEnvio());
+console.log("Status da encomenda:", encomenda1.status);
+encomenda1.atualizarStatus("Em trânsito");
+console.log("Novo status da encomenda:", encomenda1.status);
+
+/*
+Enunciado da Questão:
+
+Você foi contratado para desenvolver um sistema de gerenciamento de produtos para uma empresa que vende eletrônicos e realiza entregas dos produtos aos clientes. A empresa precisa de um sistema que permita registrar os produtos em estoque, atualizar o estoque conforme as vendas e calcular o custo de envio dos produtos.
+
+1. **Classe Produto:**
+   - A classe `Produto` representa um produto disponível na loja.
+   - Atributos:
+     - `nome`: Nome do produto.
+     - `precoUnitario`: Preço unitário do produto.
+     - `quantidadeEstoque`: Quantidade disponível em estoque.
+     - `categoria`: Categoria do produto (ex: smartphones, laptops, tablets, acessórios).
+   - Métodos:
+     - `atualizarEstoque(quantidade: number)`: Atualiza a quantidade em estoque do produto.
+     - `calcularTotal(): number`: Calcula o total de vendas do produto com base na quantidade em estoque e no preço unitário.
+
+2. **Classe Encomenda:**
+   - A classe `Encomenda` representa um pedido de entrega de um produto.
+   - Atributos:
+     - `remetente`: Nome do remetente.
+     - `destinatario`: Nome do destinatário.
+     - `peso`: Peso da encomenda em quilogramas.
+     - `enderecoEntrega`: Endereço de entrega da encomenda.
+     - `status`: Status da entrega (ex: Pendente, Em trânsito, Entregue).
+   - Métodos:
+     - `atualizarStatus(novoStatus: string)`: Atualiza o status da entrega.
+     - `calcularCustoEnvio(): number`: Calcula o custo de envio da encomenda com base no peso.
+
+3. **Exemplo de Uso:**
+   ```typescript
+   // Criando um produto e uma encomenda
+   const produto1 = new Produto("Smartphone", 1500, 50, "Smartphones");
+   const encomenda1 = new Encomenda("João", "Maria", 2, "Rua A, 123");
+
+   // Atualizando o estoque do produto
+   produto1.atualizarEstoque(-5); // Vende 5 unidades do produto
+
+   // Atualizando o status da encomenda e calculando o custo de envio
+   encomenda1.atualizarStatus("Em trânsito");
+   console.log("Custo de envio da encomenda:", encomenda1.calcularCustoEnvio());
+   ```
+
+Desenvolva as classes `Produto` e `Encomenda` conforme descrito acima e utilize-as para gerenciar os produtos em estoque e as entregas dos produtos. Utilize o exemplo de uso para testar o sistema de gerenciamento.
+*/
+
+class Produto{
+    nome:string;
+    precoUnitario:number;
+    quantidadeEstoque:number;
+    categoria:string;
+    constructor(
+        nome:string,
+        precoUnitario:number,
+        quantidadeEstoque:number,
+        categoria:string
+    )
+    {
+        this.nome=nome;
+        this.precoUnitario=precoUnitario;
+        this.quantidadeEstoque=quantidadeEstoque;
+        this.categoria=categoria;
+    }
+    atualizarEstoque(quantidade:number){
+        this.quantidadeEstoque+=quantidade;
+    }
+    calcularTotal():number{
+        return this.quantidadeEstoque*this.precoUnitario;
+    }
+    
+}
+
+class Encomenda {
+    remetente:string;
+    destinatario:string;
+    peso:number;
+    enderecoEntrega:string;
+    status:string;
+    constructor(
+        remetente:string,
+        destinatario:string,
+        peso:number,
+        enderecoEntrega:string,
+    ) 
+    {
+       this.remetente=remetente;
+       this.destinatario=destinatario;
+       this.peso=peso;
+       this.enderecoEntrega=enderecoEntrega;
+       this.status="Pendente";
+    }
+    atualizarStatus(novoStatus:string){
+        this.status=novoStatus;
+    }
+    calcularCustoEnvio():number{
+        const custoQuilo=0.5;
+        return this.peso*custoQuilo;
+    }
+}
+
+const produto1 = new Produto("Smartphone", 1500, 50, "Smartphones");
+const encomenda = new Encomenda("João", "Maria", 2, "Rua A, 123");
+
+// Atualizando o estoque do produto
+produto1.atualizarEstoque(-5); // Vende 5 unidades do produto
+
+// Atualizando o status da encomenda e calculando o custo de envio
+encomenda1.atualizarStatus("Em trânsito");
+console.log("Custo de envio da encomenda:", encomenda1.calcularCustoEnvio());
+
+/*
+
+// Exemplo de uso das classes
+const produto1 = new Produto("Smartphone", 1500, 50, "Smartphones");
+const encomenda1 = new Encomenda("João", "Maria", 2, "Rua A, 123");
+
+// Atualizando o estoque do produto
+produto1.atualizarEstoque(-5); // Vende 5 unidades do produto
+
+// Atualizando o status da encomenda e calculando o custo de envio
+encomenda1.atualizarStatus("Em trânsito");
+console.log("Custo de envio da encomenda:", encomenda1.calcularCustoEnvio());
+*/
+
+
+
+
+
+/*
+### Enunciado do Exercício:
+
+Você foi contratado para desenvolver um sistema de criação de contas e interação com publicações em uma rede social. O sistema deve permitir que os usuários criem contas, façam login, publiquem conteúdo e interajam com as publicações de outros usuários por meio de likes, dislikes e comentários.
+
+1. **Classe Conta:**
+   - A classe `Conta` representa uma conta de usuário na rede social.
+   - Atributos:
+     - `username`: Nome de usuário único.
+     - `email`: Endereço de e-mail associado à conta.
+     - `senha`: Senha para login na conta.
+   - Métodos:
+     - `criarConta(username: string, email: string, senha: string)`: Método estático para criar uma nova conta de usuário.
+     - `login(email: string, senha: string): boolean`: Método para realizar login na conta.
+
+2. **Classe Publicacao:**
+   - A classe `Publicacao` representa uma publicação na rede social.
+   - Atributos:
+     - `autor`: Nome de usuário do autor da publicação.
+     - `conteudo`: Conteúdo da publicação.
+     - `likes`: Número de likes na publicação.
+     - `dislikes`: Número de dislikes na publicação.
+     - `comentarios`: Array de strings contendo os comentários na publicação.
+   - Métodos:
+     - `darLike()`: Incrementa o número de likes na publicação.
+     - `darDislike()`: Incrementa o número de dislikes na publicação.
+     - `adicionarComentario(comentario: string)`: Adiciona um comentário à publicação.
+
+3. **Exemplo de Uso:**
+   ```typescript
+   // Criando uma conta e realizando login
+   Conta.criarConta("usuario123", "usuario123@example.com", "senha123");
+   const loginSucesso = Conta.login("usuario123@example.com", "senha123");
+   if (loginSucesso) {
+       console.log("Login realizado com sucesso!");
+   } else {
+       console.log("Falha no login. Verifique suas credenciais.");
+   }
+
+   // Criando uma publicação e interagindo com ela
+   const publicacao1 = new Publicacao("usuario123", "Hoje é um ótimo dia!");
+   publicacao1.darLike();
+   publicacao1.adicionarComentario("Que bela foto!");
+   ```
+
+Desenvolva as classes `Conta` e `Publicacao` conforme descrito acima e utilize-as para criar contas de usuário, realizar login, criar publicações e interagir com elas através de likes, dislikes e comentários. Utilize o exemplo de uso para testar o sistema de interação.
+*/
+
+// Definição da classe Conta
+class Conta {
+    // Array estático para armazenar todas as contas criadas
+    static contas: Conta[] = [];
+    // Atributos da classe Conta
+    username: string;
+    email: string;
+    senha: string;
+
+    // Construtor da classe Conta
+    constructor(username: string, email: string, senha: string) {
+        // Inicializa os atributos da conta com os valores fornecidos
+        this.username = username;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    // Método estático para criar uma nova conta
+    static criarConta(username: string, email: string, senha: string): void {
+        // Cria uma nova instância da classe Conta com os dados fornecidos
+        const novaConta = new Conta(username, email, senha);
+        // Adiciona a nova conta ao array de contas
+        this.contas.push(novaConta);
+        // Exibe uma mensagem indicando que a conta foi criada com sucesso
+        console.log(`Conta criada para o usuário ${username}`);
+    }
+
+    // Método estático para realizar o login
+    static login(email: string, senha: string): boolean {
+        // Procura por uma conta com o email e senha fornecidos
+        const conta = this.contas.find(conta => conta.email === email && conta.senha === senha);
+        // Se a conta for encontrada, exibe uma mensagem de sucesso e retorna true
+        if (conta) {
+            console.log(`Login realizado com sucesso para usuário ${conta.username}`);
+            return true;
+        } else {
+            // Se a conta não for encontrada, exibe uma mensagem de falha e retorna false
+            console.log("Falha no login! Verifique suas credenciais.");
+            return false;
+        }
+    }
+}
+
+// Definição da classe Publicacao
+class Publicacao {
+    // Atributos da classe Publicacao
+    autor: string;
+    conteudo: string;
+    likes: number = 0;
+    deslikes: number = 0;
+    comentarios: string[] = [];
+
+    // Construtor da classe Publicacao
+    constructor(autor: string, conteudo: string) {
+        // Inicializa os atributos da publicação com os valores fornecidos
+        this.autor = autor;
+        this.conteudo = conteudo;
+    }
+
+    // Método para dar like em uma publicação
+    darLike(): void {
+        // Incrementa o contador de likes e exibe uma mensagem indicando o total de likes
+        this.likes++;
+        console.log(`Publicação recebeu um like. Total de Likes: ${this.likes}`);
+    }
+
+    // Método para dar deslike em uma publicação
+    darDeslike(): void {
+        // Incrementa o contador de deslikes e exibe uma mensagem indicando o total de deslikes
+        this.deslikes++;
+        console.log(`Publicação recebeu um deslike. Total de Deslikes: ${this.deslikes}`);
+    }
+
+    // Método para adicionar um comentário à publicação
+    adicionarComentario(comentario: string): void {
+        // Adiciona o comentário ao array de comentários e exibe uma mensagem indicando o novo comentário
+        this.comentarios.push(comentario);
+        console.log(`Novo comentário adicionado: "${comentario}"`);
+    }
+}
+
+// Cria uma nova conta
+Conta.criarConta("PandoraVenusia1", "PandoraVenusia@gmail.com", "NocturnaEterna");
+// Realiza o login com a conta criada
+const loginSucesso = Conta.login("PandoraVenusia@gmail.com", "NocturnaEterna");
+// Se o login for bem-sucedido, cria uma nova publicação, dá like nela e adiciona um comentário
+if (loginSucesso) {
+    const publicacao1 = new Publicacao("PandoraVenusia", "Hoje está um dia ótimo!");
+    publicacao1.darLike();
+    publicacao1.adicionarComentario("Que bela foto!");
+}
+
+
+
+
+
+
